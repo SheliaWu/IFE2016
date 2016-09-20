@@ -1,0 +1,30 @@
+/*主体清除浮动*/
+.main{
+	overflow: hidden;;
+}
+/*浮动左侧，calc自适应宽度*/
+.container{
+	float: left;
+	width: calc(100% - 450px);
+}
+/*左侧的各个模块里面的内容宽度跟随左侧整体宽度同步自适应变化*/
+article{
+	width: calc(100%-100px);
+}
+/*浮动右侧，固定宽度*/
+aside{
+	float: right;
+	width: 350px;
+  }
+  /*父元素清除浮动*/
+  article dl{
+  	overflow: hidden;
+  }
+  /*实现图片宽度自适应*/
+  article dl dd{
+	float: left;
+}
+/*清除浮动对脚本的影响*/
+footer{
+	overflow: hidden;;
+}

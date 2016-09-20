@@ -1,0 +1,160 @@
+*{
+	padding:0；
+	margin:0;
+	font-size: 12px;
+}
+.container{
+	width: 100%;
+}
+table{
+	width: 300px;
+	margin: 0 auto;
+
+}
+table thead th{
+	background-color: #000;
+	color:#fff;
+	text-align: left;
+}
+/*选择偶数行*/
+table tbody tr:nth-child(even) td{
+	background-color: #bbb;
+}
+/*选择前三行*/
+table tbody tr:nth-child(-n+3) td{
+	color: red;
+}
+input{
+	width: 100px;
+	display: block;
+	border:2px solid #ddd;
+	margin: 20px auto;
+	transition: border-color,width .5s;
+}
+input:focus{
+	width: 200px;
+	border-color: cornflowerblue;
+}
+.banner {
+  width: 250px;
+  height: 150px;
+  position: relative;
+  /*清除元素两边的浮动，隐藏溢出*/
+  overflow: hidden;
+  margin:20px auto;
+}
+
+.banner ul {
+  margin: 0;
+  padding: 0;
+}
+
+.banner li {
+  display: block;
+}
+
+.sliders {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  /*动画，类型是slider-init*/
+  animation: .5s slider-init linear;
+}
+
+.sliders li {
+  position: absolute;
+  /*轮播图片在父容器左边*/
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: .5s slider-out linear;
+}
+
+#slider-1 {
+  background-color: red;
+}
+
+#slider-2 {
+  background-color: green;
+}
+
+#slider-3 {
+  background-color: blue;
+}
+/*target伪类用来改变页面中锚链接URL所指向的ID样式*/
+.sliders li:target {
+  left: 0%;
+  /*动画话费的时间，动画frame名称，动画速度：linear从头到尾速度相同*/
+  animation: .5s slider-in linear;
+}
+
+@keyframes slider-init {
+  0% {
+    left: -100%
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes slider-out {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes slider-in {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.btns {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+}
+
+.btns a {
+  display: block;
+  margin: 0 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+}
+
+@keyframes slider-in {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+.btns {
+  z-index: 100;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: flex;
+}
+
+.btns a {
+  display: block;
+  margin: 0 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+  color: white;
+  text-decoration: none;
+  padding: 10px 14px;
+}
