@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>task23</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		margin: 5px;
+		font-size: 10px;
+		background-color: #fff;
+		color: #000;
+		text-align: center;
+	}
+		.root{
+			width: 1000px;
+			display: flex;
+			justify-content: space-between;
+			margin: 100px auto;
+			margin-bottom: 10px;
+			border: 1px solid #000;
+		}
+		.child1{
+			display: flex;
+			justify-content: space-between;
+					border: 1px solid red;
+		}
+		.child2{
+			display: flex;
+			justify-content: space-between;
+			border: 1px solid green;
+		}
+		.child3{
+			display: flex;
+			justify-content: space-between;
+			border: 1px solid blue;
+		}
+		.child4{
+			display: flex;
+			justify-content: space-between;
+			border: 1px solid gray;
+		}
+		input {
+			margin-left: 100px;
+			width: 50px;
+			height: 40px;
+			font-size: 18px;
+		}
+		#searchInput{
+			margin-top: 20px;
+			width: 200px;
+			height: 40px;
+			border:1px solid gray;
+		}
+		#search{
+			margin-left: 0;
+			width: 60px;
+			height: 40px;
+
+		}
+	</style>
+</head>
+<body>
+<section>
+<div class="root">
+	Super
+	<div class="child1">
+		Fun
+		<div class="child2">
+			Apple
+			<div class="child3">Pear</div>
+			<div class="child3">Pig</div>
+			<div class="child3">Cata</div>
+			<div class="child3">Soccer</div>
+		</div>
+		<div class="child2">
+			Phone
+		</div>
+		<div class="child2">
+			<div class="child3">Book</div>
+			<div class="child3">School</div>
+		</div>
+	</div>
+	<div class="child1">
+		Note
+		<div class="child2">
+			Human
+			<div class="child3">Code</div>
+			<div class="child3">Operate</div>
+			<div class="child3">Man</div>
+		</div>
+		<div class="child2">
+			Program
+			<div class="child3">
+				Bement
+				<div class="child4">
+					Cat
+				</div>
+			</div>
+			<div class="child3">Gass</div>
+		</div>
+	</div>
+	<div class="child1">
+		Fsh
+	</div>
+</div>
+</section>
+<input type="button" value="深度">
+<input type="button" value="广度">
+<br>
+<input type="text" id="searchInput">
+<input type="button" value="查询" id="search">
+<script type="text/javascript" src="task23.js"></script>
+</body>
+</html>
