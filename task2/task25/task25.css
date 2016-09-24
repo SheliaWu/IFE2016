@@ -1,0 +1,90 @@
+span{
+	padding: 0;
+	margin: 0;
+}
+#tree-module{
+	display: inline-block;
+	width: 400px;
+	position: relative;
+	left: 50%;
+	/*宽的一半，保证组件居中*/
+	margin-left: -200px;
+}
+#clear{
+	margin-left: 10px;
+}
+/*以下是节点部分的样式*/
+.nodebody-visible{
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: flex-start;
+	margin: 5px 18px;
+	background-color: #fff;
+	user-select:none;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+}
+.nodebody-hidden{
+	display: none;
+}
+.arrow{
+	display: inline-block;
+	margin-right: 6px;
+}
+/*右三角的设置画法*/
+.right-arrow{
+	width: 0;
+	height: 0;
+	border-left: 10px solid #6898c2;
+	border-top:5px solid transparent;
+	border-bottom: 5px solid transparent;
+	cursor: pointer;
+}
+.down-arrow{
+	width: 0;
+	height: 0;
+	border-top: 10px solid #6898c2;
+	border-left:5px solid transparent;
+	border-right: 5px solid transparent;
+	cursor: pointer;
+}
+/*预留arrow位置，将来添加子节点时箭头不影响结构*/
+.empty-arrow{
+	border-left:10px solid transparent;
+}
+.node-title{
+	font-family: "Microsoft YaHei UI";
+    font-size: 14px;
+    color: #6898c2;
+    line-height: 1.5em;
+}
+.node-title:hover{
+	color:blue;
+	cursor: pointer;
+}
+.node-title-highlight{
+	color:red;
+	font-weight: bold;
+}
+.addIcon,.deleteIcon{
+	display: none;
+	vertical-align: top;
+}
+.addIcon:hover,.deleteIcon:hover{
+	cursor: pointer;
+}
+.node-header:hover>.addIcon,.node-header:hover>.deleteIcon{
+	display: inline;
+}
+br{
+	clear: both;
+}
+legend{
+	font-family: "黑体";
+	font-size: 20px;
+}
+.root,fieldset{
+	float: left;
+}
