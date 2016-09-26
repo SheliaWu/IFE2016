@@ -8,7 +8,7 @@ function TreeNode(obj) {
     this.parent = obj.parent;
     this.childs = obj.childs || [];
     this.data = obj.data || "";
-    this.selfElement = obj.selfElement; // 访问对应的DOM结点
+    this.selfElement = obj.selfElement; // 访问对应的DOM结点，绑定对应DOM结点
     this.selfElement.TreeNode = this;  // 对应的DOM结点访问回来
 }
 // 原型模式封装公共操作
@@ -46,7 +46,7 @@ TreeNode.prototype = {
             this.selfElement.getElementsByClassName("node-title")[0].className = "node-title";
         }
     },
-    // 删除结点，DOM会自动递归删除子节点，TreeNode递归手动删除子节点
+    // 删 除结点，DOM会自动递归删除子节点，TreeNode递归手动删除子节点
     deleteNode: function () {
         var i;
         // 递归删除子节点
@@ -56,13 +56,13 @@ TreeNode.prototype = {
             }
         }
         this.parent.selfElement.removeChild(this.selfElement);// 移除对应的DOM结点
-        for (i = 0; i < this.parent.childs.length; i++) { // 从父节点删除该孩子
+        for (i = 0; i < this.parent.childs.length; i++) { // 从父节点删除该孩子，同步Treenode节点信息 
             if (this.parent.childs[i] == this) {
                 this.parent.childs.splice(i, 1);
                 break;
             }
         }
-        // 调整父结点箭头样式
+        // 调整父结点箭头样式,true和false用来表示渲染样式时主要是关注什么样式的改变，比如这个是arrow样式
         this.parent.render(true, false);
     },
     // 增加子节点
@@ -80,6 +80,7 @@ TreeNode.prototype = {
         // 创建新的DOM结点并附加
         var newNode = document.createElement("div");
         newNode.className = "nodebody-visible";
+        //label定义了一个标题(及样式集合)
         var newHeader = document.createElement("label");
         newHeader.className = "node-header";
         var newSymbol = document.createElement("div");
@@ -95,6 +96,7 @@ TreeNode.prototype = {
         var newAdd = document.createElement("img");
         newAdd.className = "addIcon";
         newAdd.src = "images/add.png";
+        //标题内容集合,箭头 标题内容 空格 添加图片 删除图片
         newHeader.appendChild(newSymbol);
         newHeader.appendChild(newTitle);
         newHeader.appendChild(space);
@@ -113,8 +115,9 @@ TreeNode.prototype = {
         if (this.isLeaf()) return this; // 叶节点，无需操作
         // 改变所有子节点的可见状态
         for (var i=0;i<this.childs.length;i++)
+            //对自己点的可见状态进行改变
             this.childs[i].render(false, true);
-        // 渲染本节点的箭头
+        // 渲染本节点的箭头，改变本节点子节点的显示状态同时就要改变本节点的arrow样式
         this.render(true, false);
         return this; // 返回自身，以便链式操作
     },
@@ -135,6 +138,7 @@ TreeNode.prototype = {
 // 创建根节点对应的TreeNode对象
 var root = new TreeNode({parent: null, childs: [], data: "前端攻城狮", selfElement: document.getElementsByClassName("nodebody-visible")[0]});
 // 为root绑定事件代理，处理所有节点的点击事件
+//root代表的是TreeNode对象，它的DOM结点要通过root.selfElement获取
 addEvent(root.selfElement, "click", function (e) {
     var target = e.target || e.srcElement;
     var domNode = target;
